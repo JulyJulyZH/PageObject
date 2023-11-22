@@ -5,25 +5,20 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import ru.netology.web.data.DataHelper;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TopUpPage {
-    @FindBy(linkText = "Пополнение карты")
-    private SelenideElement header;
-    @FindBy(css = "[data-test-id=amount] input")
-    private SelenideElement amountField;
-    @FindBy(css = "[data-test-id=from] input")
-    private SelenideElement fromField;
-    @FindBy(css = "[data-test-id=to] input")
-    private SelenideElement toField;
-    @FindBy(css = "[ data-test-id=action-transfer] ")
-    private SelenideElement transferButton;
 
-    @FindBy(css = "[ data-test-id=error-notification] ")
-    private SelenideElement errorTopUp;
+    private SelenideElement header = $ (byText("Пополнение карты"));
+    private SelenideElement amountField = $ ("[data-test-id=amount] input");
+    private SelenideElement fromField = $ ("[data-test-id=from] input");
+    private SelenideElement toField = $ ("[data-test-id=to] input");
+    private SelenideElement transferButton = $("[ data-test-id=action-transfer] ");
 
-    public TopUpPage(){
-    header.shouldBe(Condition.visible);
+    private SelenideElement errorTopUp = $("[ data-test-id=error-notification] ");
+
+    public TopUpPage(){ header.shouldBe(Condition.visible);
     }
 
     public DashboardPage succesTopUp (String amount, DataHelper.CardInfo cardInfo) {

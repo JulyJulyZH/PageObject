@@ -43,8 +43,6 @@ public class DashboardPage {
         System.out.println(cardInfo.getCardId());
         cards.findBy(attribute("data-test-id", cardInfo.getCardId())).
                 $("button").shouldBe(visible).click();
-
-
         return new TopUpPage();
     }
 }

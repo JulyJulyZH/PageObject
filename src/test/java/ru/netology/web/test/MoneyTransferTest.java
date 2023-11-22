@@ -35,7 +35,7 @@ class MoneyTransferTest {
     }
 
   @Test
-  void shouldTransferMoneyFrom1() {
+  void transferMoneyFrom1Test() {
     int ammount = getTopUpAmount(balance1);
     int expected1 = balance1 - ammount;
     int expected2 = balance2 + ammount;
@@ -45,6 +45,16 @@ class MoneyTransferTest {
     int actual2 = dashboardPage.getSecondCardBalance();
     Assertions.assertEquals(expected1, actual1);
     Assertions.assertEquals(expected2, actual2);
+  }
+
+  @Test
+  void errorTest() {
+    int amount = getWrongTopUpAmount(balance1);
+        TopUpPage topUpPage = dashboardPage.cardTopUp(cardInfo2);
+    dashboardPage = topUpPage.succesTopUp(String.valueOf(amount), cardInfo1);
+    topUpPage.errorMessage("Ошибка! Произошла ошибка!");
+    Assertions.assertEquals(balance1, dashboardPage.getFirstCardBalance());
+    Assertions.assertEquals(balance2, dashboardPage.getSecondCardBalance());
   }
 
 
