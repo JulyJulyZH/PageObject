@@ -52,6 +52,7 @@ class MoneyTransferTest {
     int amount = getWrongTopUpAmount(balance1);
         TopUpPage topUpPage = dashboardPage.cardTopUp(cardInfo2);
     dashboardPage = topUpPage.succesTopUp(String.valueOf(amount), cardInfo1);
+    sleep(3000);
     topUpPage.errorMessage("Ошибка! Произошла ошибка!");
     Assertions.assertEquals(balance1, dashboardPage.getFirstCardBalance());
     Assertions.assertEquals(balance2, dashboardPage.getSecondCardBalance());

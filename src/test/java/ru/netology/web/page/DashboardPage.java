@@ -14,7 +14,7 @@ public class DashboardPage {
     private static final String balanceStart = "баланс: ";
     private static final String balanceFinish = " р.";
 
-    public void Dashboard() {
+    public void dashboard() {
         heading.shouldBe(visible);
     }
 

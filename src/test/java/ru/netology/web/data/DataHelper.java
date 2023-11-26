@@ -9,13 +9,13 @@ public class DataHelper {
 
   public static int getTopUpAmount(int balance){
     Random random = new Random();
-    int ammount = random.nextInt(balance);
+    int ammount = random.nextInt(balance)+1;
     return ammount;
   }
 
   public static int getWrongTopUpAmount(int balance){
     Random random = new Random();
-    int ammount = random.nextInt(balance);
+    int ammount = balance + random.nextInt(10000);
     return ammount;
   }
 
